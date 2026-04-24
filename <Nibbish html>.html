@@ -111,11 +111,11 @@
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 48px 80px;
+    justify-content: flex-start;
+    padding: 24px 16px 32px;
     position: relative;
     overflow: hidden;
   }
@@ -802,12 +802,16 @@
     .nav-links, .nav-cta { display: none; }
     .nav-toggle { display: flex; }
 
-    section { padding: 70px 24px; }
+    section { padding: 40px 8px; }
 
-    .hero { padding: 0 24px 60px; }
+    .hero {
+      min-height: 70vh;
+      padding: 16px 8px 16px;
+      justify-content: flex-start;
+    }
 
     .about { grid-template-columns: 1fr; }
-    .about-visual { height: 300px; }
+    .about-visual { height: 220px; }
 
     .menu-grid { grid-template-columns: 1fr; }
 
@@ -816,7 +820,7 @@
 
     .dessert-grid { grid-template-columns: 1fr; }
 
-    .gallery-strip { grid-template-columns: 1fr 1fr; height: 300px; }
+    .gallery-strip { grid-template-columns: 1fr 1fr; height: 180px; }
     .gallery-strip > *:nth-child(3),
     .gallery-strip > *:nth-child(4) { display: none; }
 
