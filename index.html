@@ -542,21 +542,21 @@ p:last-child { margin-bottom: 0; }
 
 <div class="grad-line"></div>
 
-<!-- ============ MENU HIGHLIGHTS ============ -->
+<!-- ============ MENU ============ -->
 <section class="section section--tint" id="menu">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">Street food</p>
-      <h2>OUR FAB FRIED STUFF</h2>
-      <p class="section__sub">Roman supplì and Sicilian arancine, handmade daily with the finest ingredients.</p>
+      <p class="eyebrow">Full menu</p>
+      <h2>WHAT WE SERVE</h2>
+      <p class="section__sub">Everything handmade daily. Click a category to explore.</p>
     </div>
 
-    <div class="menu-cards">
+    <!-- dish highlights with real photos -->
+    <div class="menu-cards" style="margin-bottom:2.5rem">
 
       <div class="dish">
         <div class="dish__media">
-          <!-- Add image: supplì classico -->
-          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+          <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/suppli_classico.png" alt="Supplì Classico" loading="lazy">
         </div>
         <div class="dish__body">
           <h3>Supplì Classico</h3>
@@ -567,7 +567,7 @@ p:last-child { margin-bottom: 0; }
 
       <div class="dish">
         <div class="dish__media">
-          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+          <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/suppli_nduja.png" alt="Supplì con N'Duja" loading="lazy">
         </div>
         <div class="dish__body">
           <h3>Supplì con N'Duja</h3>
@@ -578,7 +578,7 @@ p:last-child { margin-bottom: 0; }
 
       <div class="dish">
         <div class="dish__media">
-          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+          <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/arancine_carbonara.png" alt="Arancine Carbonara" loading="lazy">
         </div>
         <div class="dish__body">
           <h3>Arancine Carbonara</h3>
@@ -589,7 +589,18 @@ p:last-child { margin-bottom: 0; }
 
       <div class="dish">
         <div class="dish__media">
-          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+          <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/arancine_cacio_pepe.png" alt="Arancine Cacio & Pepe" loading="lazy">
+        </div>
+        <div class="dish__body">
+          <h3>Arancine Cacio &amp; Pepe</h3>
+          <p>Rice, parmigiano &amp; pecorino cheese, black pepper</p>
+        </div>
+        <p class="dish__price">£2.30</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish__media">
+          <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/olive_ascolana.png" alt="Olive Ascolana" loading="lazy">
         </div>
         <div class="dish__body">
           <h3>Olive Ascolana</h3>
@@ -600,55 +611,29 @@ p:last-child { margin-bottom: 0; }
 
       <div class="dish">
         <div class="dish__media">
-          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+          <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/pork_nuggets_6pcs.png" alt="Pork Nuggets" loading="lazy">
         </div>
         <div class="dish__body">
           <h3>Pork Nuggets · 6pcs</h3>
-          <p>Pork, herbs and spices · also available with chips</p>
+          <p>Pork, herbs and spices · also with chips</p>
         </div>
         <p class="dish__price">£4.95</p>
       </div>
 
-      <div class="dish">
-        <div class="dish__media">
-          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
-        </div>
-        <div class="dish__body">
-          <h3>Arancine Cacio &amp; Pepe</h3>
-          <p>Rice, parmigiano &amp; pecorino cheese, black pepper</p>
-        </div>
-        <p class="dish__price">£2.30</p>
-      </div>
-
     </div><!-- /menu-cards -->
 
-    <!-- full fried menu accordion -->
     <div class="full-menu">
-      <div class="full-menu__head">
-        <div>
-          <p class="eyebrow" style="margin-bottom:.3rem">Full menu</p>
-          <h3>ALL FRIED ITEMS</h3>
-        </div>
-      </div>
 
-      <details class="acc__item">
-        <summary class="acc__head">Supplì <span class="acc__icon"></span></summary>
+      <details class="acc__item" open>
+        <summary class="acc__head">🍚 Supplì &amp; Arancine <span class="acc__icon"></span></summary>
         <div class="acc__body">
           <ul class="acc__list">
-            <li><span>Supplì Classico — Rice, tomato sauce, mozzarella, parmigiano, basil, eggs</span><span>£2.00</span></li>
-            <li><span>Supplì con N'Duja — Rice, tomato, mozzarella, Calabrian salami, eggs · Spicy</span><span>£2.30</span></li>
-            <li><span>Supplì al Ragù — Rice, bolognese sauce, mozzarella, parmigiano, eggs</span><span>£2.30</span></li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="acc__item">
-        <summary class="acc__head">Arancine <span class="acc__icon"></span></summary>
-        <div class="acc__body">
-          <ul class="acc__list">
+            <li><span>Supplì Classico — Rice, tomato sauce, mozzarella, parmigiano, basil</span><span>£2.00</span></li>
+            <li><span>Supplì con N'Duja — Rice, tomato, mozzarella, Calabrian salami · 🌶 Spicy</span><span>£2.30</span></li>
+            <li><span>Supplì al Ragù — Rice, bolognese sauce, mozzarella, parmigiano</span><span>£2.30</span></li>
             <li><span>Arancine Cacio &amp; Pepe — Rice, parmigiano &amp; pecorino, black pepper</span><span>£2.30</span></li>
             <li><span>Arancine Amatriciana — Rice, tomato sauce, mozzarella, guanciale</span><span>£2.30</span></li>
-            <li><span>Arancine Carbonara — Rice, guanciale, egg yolk, pecorino cheese</span><span>£2.30</span></li>
+            <li><span>Arancine Carbonara — Rice, guanciale, egg yolk, pecorino</span><span>£2.30</span></li>
             <li><span>Arancine Carciofi &amp; Tartufo — Rice, artichokes, truffle, cheese</span><span>£2.30</span></li>
             <li><span>Arancine alla Gricia — Rice, pecorino, guanciale, black pepper</span><span>£2.30</span></li>
           </ul>
@@ -656,39 +641,84 @@ p:last-child { margin-bottom: 0; }
       </details>
 
       <details class="acc__item">
-        <summary class="acc__head">Olive &amp; Nuggets <span class="acc__icon"></span></summary>
+        <summary class="acc__head">🫒 Olive &amp; Nuggets <span class="acc__icon"></span></summary>
         <div class="acc__body">
           <ul class="acc__list">
-            <li><span>Olive Ascolana — Olives filled with meats and herb spices</span><span>£4.95</span></li>
+            <li><span>Olive Ascolana — Olives filled with mixed meats and herb spices</span><span>£4.95</span></li>
             <li><span>Olive Ascolana with Chips</span><span>£7.50</span></li>
-            <li><span>Pork Nuggets 6pcs — Pork, herbs, spices, eggs</span><span>£4.95</span></li>
+            <li><span>Pork Nuggets 6pcs — Pork, herbs and spices</span><span>£4.95</span></li>
             <li><span>Pork Nuggets with Chips</span><span>£7.50</span></li>
           </ul>
         </div>
       </details>
 
       <details class="acc__item">
-        <summary class="acc__head">Breakfast <span class="acc__icon"></span></summary>
+        <summary class="acc__head">🍕 Pinsa Romana <span class="acc__icon"></span></summary>
         <div class="acc__body">
+          <p class="acc__note">Soya, rice &amp; sourdough flours · 72h leavening · low fat &amp; carb</p>
           <ul class="acc__list">
-            <li><span>Croissant — made with 24% butter</span><span>£1.90</span></li>
-            <li><span>Filled Croissant — Jam / Nutella / Pistacchio</span><span>£2.20</span></li>
+            <li><span>Margherita — Tomato sauce, homemade mozzarella, basil, olive oil</span><span>£9.00</span></li>
+            <li><span>Crostino Rosso — Tomato sauce, mozzarella, cooked ham, olive oil</span><span>£10.50</span></li>
+            <li><span>Amatriciana — Tomato sauce, guanciale, pecorino, black pepper</span><span>£11.50</span></li>
+            <li><span>Diavola — Salame piccante calabrese, tomato sauce, mozzarella</span><span>£11.50</span></li>
+            <li><span>Nibblish — Tomato sauce, n'duja, buffalo stracciatella, olive oil</span><span>£12.00</span></li>
+            <li><span>Alici — Tomato sauce, anchovies, homemade stracciatella, olive oil</span><span>£12.00</span></li>
+            <li><span>Carbonara — Mozzarella, guanciale, egg yolk, pecorino, black pepper</span><span>£12.00</span></li>
+            <li><span>Meat Me — Tomato sauce, mozzarella, chicken, sausage, pork loin, BBC sauce</span><span>£12.50</span></li>
+            <li><span>Veggie — Homemade mozzarella, seasonal vegetables, olive oil</span><span>£12.50</span></li>
+            <li><span>Pizza Slice</span><span>£2.80</span></li>
           </ul>
         </div>
       </details>
 
       <details class="acc__item">
-        <summary class="acc__head">Drinks <span class="acc__icon"></span></summary>
+        <summary class="acc__head">😊 Our Smiles <span class="acc__icon"></span></summary>
+        <div class="acc__body">
+          <p class="acc__note">Open pinsa · 72h matured dough · Extra sauce +50p · Extra ingredient +£1.50</p>
+          <ul class="acc__list">
+            <li><span>Veggie — Buffalo mozzarella, seasonal vegetables, olive oil</span><span>£5.90</span></li>
+            <li><span>Norwegian — Cream cheese, salad, smoked salmon</span><span>£5.90</span></li>
+            <li><span>Genovese — Sliced tomatoes, buffalo mozzarella, pesto sauce</span><span>£5.90</span></li>
+            <li><span>Bologna — Mortadella, stracciatella, pistacchio cream</span><span>£5.90</span></li>
+            <li><span>Nibblish — Salad, tomato, buffalo mozzarella, fried chicken, caramelised onions, honey mustard</span><span>£6.90</span></li>
+            <li><span>Spanish — Iberico ham, sliced tomatoes, rocket salad, buffalo mozzarella</span><span>£6.90</span></li>
+            <li><span>Don Gaucho — Pork loin, crispy guanciale, salsa gaucha</span><span>£6.90</span></li>
+            <li><span>'Nice to Meat Balls' — Homemade meat balls, tomato sauce, cacio e pepe drizzle</span><span>£6.90</span></li>
+            <li><span>Por la Cara — Pork cheek</span><span>£6.90</span></li>
+            <li><span>El Classic — Beef with pepper sauce</span><span>£6.90</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc__item">
+        <summary class="acc__head">🍰 Desserts <span class="acc__icon"></span></summary>
         <div class="acc__body">
           <ul class="acc__list">
+            <li><span>Tiramisu Classico — Egg yolk, mascarpone, sugar, coffee, savoiardi, cocoa</span><span>£5.00</span></li>
+            <li><span>Tiramisu al Pistacchio — Egg yolk, mascarpone, savoiardi, pistacchio cream</span><span>£5.00</span></li>
+            <li><span>Cukimisù — Mascarpone, homemade cookies, Kinder Bueno topping</span><span>£5.00</span></li>
+            <li><span>Strawberry Cheesecake — Cream cheese, whipped cream, strawberry coulis</span><span>£4.50</span></li>
+            <li><span>Pistacchio Cheesecake — Cream cheese, whipped cream, pistacchio cream</span><span>£4.50</span></li>
+            <li><span>Dulce de Leche Cheesecake — Cream cheese, whipped cream, dulce de leche</span><span>£4.50</span></li>
+            <li><span>Home Made Brownie — Eggs, butter, flour, vanilla, chocolate, sugar</span><span>£3.50</span></li>
+            <li><span>Home Made Chocolate Cookies</span><span>£2.00</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc__item">
+        <summary class="acc__head">☕ Breakfast &amp; Drinks <span class="acc__icon"></span></summary>
+        <div class="acc__body">
+          <ul class="acc__list">
+            <li><span>Croissant — made with 24% butter</span><span>£1.90</span></li>
+            <li><span>Filled Croissant — Jam / Nutella / Pistacchio</span><span>£2.20</span></li>
             <li><span>Espresso</span><span>£1.20</span></li>
             <li><span>Cafe Decaf — M / L</span><span>£1.80 / £2.40</span></li>
             <li><span>Tea</span><span>£1.70</span></li>
             <li><span>Americano — M / L</span><span>£1.70 / £2.00</span></li>
             <li><span>Latte Machiato — M / L</span><span>£1.70 / £2.30</span></li>
             <li><span>Capuccino — M / L</span><span>£1.70 / £2.30</span></li>
-            <li><span>Water</span><span>£1.00</span></li>
-            <li><span>Sparkling Water</span><span>£1.60</span></li>
+            <li><span>Water / Sparkling Water</span><span>£1.00 / £1.60</span></li>
             <li><span>Tango Mango / Apple</span><span>£1.20</span></li>
             <li><span>Lipton</span><span>£1.70</span></li>
             <li><span>Don Simon</span><span>£1.20</span></li>
@@ -696,12 +726,12 @@ p:last-child { margin-bottom: 0; }
           </ul>
         </div>
       </details>
-    </div><!-- /full-menu -->
 
+    </div><!-- /full-menu -->
   </div>
 </section>
 
-<!-- ============ PINSA ============ -->
+<!-- ============ PINSA VISUAL ============ -->
 <section class="pinsa-feat" id="pinsa">
   <figure class="pinsa-feat__bg">
     <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_3.jpg"
@@ -715,42 +745,12 @@ p:last-child { margin-bottom: 0; }
       <span class="pinsa-badge pinsa-badge--purple">Low fat &amp; carb</span>
       <span class="pinsa-badge pinsa-badge--gold">Artisan dough</span>
     </div>
-    <p style="max-width:52ch;color:rgba(255,255,255,.75);font-weight:300;line-height:1.7;">
+    <p style="max-width:52ch;color:rgba(255,255,255,.75);font-weight:300;line-height:1.7;margin-bottom:2rem">
       Our unique pinsas are made from a blend of premium flours — soya, rice and sourdough —
       with 72 hours of perfect leavening and maturation. Lighter, crispier and easier to digest
       than traditional pizza. Low fat and carb content. Heavy on flavour.
     </p>
-
-    <div class="pinsa-grid">
-      <div class="pinsa-item"><span class="pinsa-item__name">Margherita</span><span class="pinsa-item__price">£9.00</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Crostino Rosso</span><span class="pinsa-item__price">£10.50</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Amatriciana</span><span class="pinsa-item__price">£11.50</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Diavola</span><span class="pinsa-item__price">£11.50</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Nibblish</span><span class="pinsa-item__price">£12.00</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Alici</span><span class="pinsa-item__price">£12.00</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Carbonara</span><span class="pinsa-item__price">£12.00</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Meat Me</span><span class="pinsa-item__price">£12.50</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Veggie</span><span class="pinsa-item__price">£12.50</span></div>
-      <div class="pinsa-item"><span class="pinsa-item__name">Pizza Slice</span><span class="pinsa-item__price">£2.80</span></div>
-    </div>
-
-    <!-- smiles -->
-    <div style="margin-top:3.5rem">
-      <p class="eyebrow" style="margin-bottom:1rem">Our Smiles · Pinsa dough, 72h matured</p>
-      <div class="smiles-grid">
-        <div class="smile-card"><h4>VEGGIE</h4><p>Homemade buffalo mozzarella, seasonal vegetables, olive oil</p><span class="smile-card__price">£5.90</span></div>
-        <div class="smile-card"><h4>NORWEGIAN</h4><p>Cream cheese, salad, smoked salmon</p><span class="smile-card__price">£5.90</span></div>
-        <div class="smile-card"><h4>GENOVESE</h4><p>Sliced tomatoes, homemade buffalo mozzarella, pesto sauce</p><span class="smile-card__price">£5.90</span></div>
-        <div class="smile-card"><h4>BOLOGNA</h4><p>Mortadella, homemade stracciatella, pistacchio cream</p><span class="smile-card__price">£5.90</span></div>
-        <div class="smile-card"><h4>NIBBLISH</h4><p>Salad, tomato, buffalo mozzarella, fried chicken, caramelised onions, honey mustard</p><span class="smile-card__price">£6.90</span></div>
-        <div class="smile-card"><h4>SPANISH</h4><p>Iberico ham, sliced tomatoes, rocket salad, buffalo mozzarella</p><span class="smile-card__price">£6.90</span></div>
-        <div class="smile-card"><h4>DON GAUCHO</h4><p>Pork loin, crispy guanciale, salsa gaucha</p><span class="smile-card__price">£6.90</span></div>
-        <div class="smile-card"><h4>EL CLASSIC</h4><p>Beef with pepper sauce</p><span class="smile-card__price">£6.90</span></div>
-        <div class="smile-card"><h4>'NICE TO MEAT BALLS'</h4><p>Homemade meat balls in tomato sauce and cacio e pepe drizzle</p><span class="smile-card__price">£6.90</span></div>
-        <div class="smile-card"><h4>POR LA CARA</h4><p>Pork cheek</p><span class="smile-card__price">£6.90</span></div>
-      </div>
-      <p class="pinsa-note">Extra sauce +50p · Extra ingredient +£1.50</p>
-    </div>
+    <a class="btn btn--white" href="#menu">See full menu ↑</a>
   </div>
 </section>
 
@@ -781,27 +781,6 @@ p:last-child { margin-bottom: 0; }
       <div class="gallery__item">
         <div class="img-placeholder" style="height:100%"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ DESSERTS ============ -->
-<section class="section" id="desserts">
-  <div class="wrap">
-    <div class="section__head">
-      <p class="eyebrow">Sweet endings</p>
-      <h2>NIBBLISH DESSERTS</h2>
-      <p class="section__sub">All made in-house, from our tiramisù classics to our signature cheesecakes.</p>
-    </div>
-    <div class="dessert-grid">
-      <div class="dessert-card"><h4>TIRAMISU CLASSICO</h4><p>Egg yolk, mascarpone, sugar, coffee, savoiardi, cocoa</p><span class="dessert-card__price">£5.00</span></div>
-      <div class="dessert-card"><h4>TIRAMISU AL PISTACCHIO</h4><p>Egg yolk, mascarpone, sugar, savoiardi, pistacchio cream</p><span class="dessert-card__price">£5.00</span></div>
-      <div class="dessert-card"><h4>CUKIMISÙ</h4><p>Egg yolk, mascarpone, sugar, homemade cookies, Kinder Bueno topping</p><span class="dessert-card__price">£5.00</span></div>
-      <div class="dessert-card"><h4>HOME MADE BROWNIE</h4><p>Eggs, butter, flour, vanilla, chocolate, sugar</p><span class="dessert-card__price">£3.50</span></div>
-      <div class="dessert-card"><h4>CHOCOLATE COOKIES</h4><p>Homemade chocolate cookies, fresh baked daily</p><span class="dessert-card__price">£2.00</span></div>
-      <div class="dessert-card"><h4>STRAWBERRY CHEESECAKE</h4><p>Biscuits, butter, whipped cream, cream cheese, strawberry coulis</p><span class="dessert-card__price">£4.50</span></div>
-      <div class="dessert-card"><h4>PISTACCHIO CHEESECAKE</h4><p>Biscuits, butter, whipped cream, cream cheese, pistacchio cream</p><span class="dessert-card__price">£4.50</span></div>
-      <div class="dessert-card"><h4>DULCE DE LECHE CHEESECAKE</h4><p>Biscuits, butter, whipped cream, cream cheese, dulce de leche</p><span class="dessert-card__price">£4.50</span></div>
     </div>
   </div>
 </section>
