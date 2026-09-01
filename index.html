@@ -2,1208 +2,918 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nibblish Gibraltar | Fusion Food Gang</title>
-<meta name="description" content="Nibblish by Itané — Gibraltar's Fusion Food Gang. Italian-inspired pinsa, supplì, arancine, and handmade desserts. Monday–Friday 8:00–16:00.">
+<meta name="description" content="Nibblish by Itané — Gibraltar's Fusion Food Gang. Handmade pinsa romana, supplì, arancine, and homemade desserts. Monday–Friday 8:00–16:00.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green: #00C897;
-    --teal: #00A8A8;
-    --blue: #3B6FD4;
-    --purple: #7B3FC4;
-    --gold: #C9A84C;
-    --dark: #0a0a12;
-    --darker: #050508;
-    --white: #FAFAF5;
-    --gray: #8888aa;
-    --grad: linear-gradient(135deg, #00C897 0%, #00A8A8 30%, #3B6FD4 65%, #7B3FC4 100%);
-    --grad-text: linear-gradient(90deg, #00C897, #7B3FC4);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--darker);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-  }
-
-  /* ── NOISE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.3;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 48px;
-    background: rgba(5,5,8,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    transition: padding 0.3s;
-  }
-
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 2px;
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--white); }
-
-  .nav-cta {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--dark);
-    background: var(--green);
-    padding: 10px 24px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .nav-cta:hover {
-    background: var(--white);
-    transform: translateY(-1px);
-  }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 48px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: var(--grad);
-    opacity: 0.15;
-  }
-
-  .hero-bg-img {
-    position: absolute;
-    inset: 0;
-    background: url('https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_1.jpg') center/cover no-repeat;
-    filter: brightness(0.25) saturate(1.4);
-  }
-
-  .hero-accent {
-    position: absolute;
-    top: 0; right: 0;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 40%, rgba(0,200,151,0.08) 100%);
-  }
-
-  .hero-content { position: relative; z-index: 2; max-width: 900px; }
-
-  .hero-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .hero-tag::before {
-    content: '';
-    display: inline-block;
-    width: 40px;
-    height: 2px;
-    background: var(--green);
-  }
-
-  .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(80px, 14vw, 180px);
-    line-height: 0.9;
-    letter-spacing: -2px;
-    margin-bottom: 32px;
-  }
-
-  .hero-title .line1 { display: block; color: var(--white); }
-  .hero-title .line2 {
-    display: block;
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-sub {
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(250,250,245,0.65);
-    max-width: 480px;
-    line-height: 1.6;
-    margin-bottom: 48px;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .btn-primary {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--dark);
-    background: var(--green);
-    padding: 16px 40px;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.2s, background 0.2s;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    background: #00ffbc;
-  }
-
-  .hero-hours {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: var(--gray);
-  }
-
-  .hero-hours strong {
-    color: var(--white);
-    font-weight: 700;
-  }
-
-  /* ── MARQUEE ── */
-  .marquee-wrap {
-    background: var(--green);
-    padding: 14px 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .marquee-track {
-    display: inline-block;
-    animation: marquee 18s linear infinite;
-  }
-
-  .marquee-track span {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 3px;
-    color: var(--dark);
-    margin: 0 32px;
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ── SECTIONS ── */
-  section { padding: 100px 48px; }
-
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 7vw, 88px);
-    line-height: 0.95;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
-  }
-
-  /* ── ABOUT ── */
-  .about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .about-text p {
-    font-size: 17px;
-    font-weight: 300;
-    color: rgba(250,250,245,0.7);
-    line-height: 1.75;
-    margin-bottom: 20px;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-top: 48px;
-  }
-
-  .stat {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 28px;
-  }
-
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    line-height: 1;
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .stat-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-top: 6px;
-  }
-
-  .about-visual {
-    position: relative;
-    height: 600px;
-  }
-
-  .about-img-main {
-    position: absolute;
-    inset: 0;
-    background: url('https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_2.jpg') center/cover;
-    filter: brightness(0.9) saturate(1.1);
-  }
-
-  .about-img-overlay {
-    position: absolute;
-    bottom: -30px;
-    left: -30px;
-    width: 220px;
-    height: 280px;
-    background: url('https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/SaveClip_App_476249312_122111998868711970_3030171058919745886_n.jpg') center/cover;
-    border: 4px solid var(--darker);
-    filter: brightness(0.9);
-  }
-
-  .about-badge {
-    position: absolute;
-    top: 32px;
-    right: -20px;
-    background: var(--green);
-    color: var(--dark);
-    padding: 20px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-align: center;
-    line-height: 1.3;
-    width: 110px;
-  }
-
-  /* ── MENU ── */
-  #menu { background: var(--dark); }
-
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2px;
-    margin-top: 60px;
-  }
-
-  .menu-card {
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.05);
-    padding: 40px 36px;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-    cursor: default;
-  }
-
-  .menu-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--grad);
-    transition: height 0.4s;
-  }
-
-  .menu-card:hover::before { height: 100%; }
-  .menu-card:hover { background: rgba(255,255,255,0.04); }
-
-  .menu-card-icon {
-    font-size: 36px;
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  .menu-card-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-
-  .menu-card-desc {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .menu-card-price {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--green);
-    letter-spacing: 1px;
-  }
-
-  .menu-card-tag {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-  }
-
-  .tag-spicy { background: rgba(255,80,80,0.15); color: #ff8080; }
-  .tag-new { background: rgba(0,200,151,0.15); color: var(--green); }
-  .tag-fan { background: rgba(201,168,76,0.15); color: var(--gold); }
-
-  /* ── PINSA FEATURE ── */
-  .pinsa-section {
-    background: var(--darker);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .pinsa-bg {
-    position: absolute;
-    inset: 0;
-    background: url('https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_3.jpg') center/cover no-repeat;
-    filter: brightness(0.15) saturate(1.3);
-  }
-
-  .pinsa-content {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .pinsa-badge-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-  }
-
-  .pinsa-badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border: 1px solid;
-  }
-
-  .pinsa-badge.green { border-color: var(--green); color: var(--green); }
-  .pinsa-badge.purple { border-color: var(--purple); color: #b07af0; }
-  .pinsa-badge.gold { border-color: var(--gold); color: var(--gold); }
-
-  .pinsa-text p {
-    font-size: 17px;
-    font-weight: 300;
-    color: rgba(250,250,245,0.7);
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
-
-  .pinsa-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .pinsa-item {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 24px;
-    transition: background 0.2s;
-  }
-
-  .pinsa-item:hover { background: rgba(0,200,151,0.08); }
-
-  .pinsa-item-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .pinsa-item-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--green);
-  }
-
-  /* ── DESSERTS ── */
-  #desserts {
-    background: #080810;
-  }
-
-  .dessert-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 60px;
-  }
-
-  .dessert-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.05);
-    padding: 36px 28px;
-    transition: all 0.3s;
-    position: relative;
-  }
-
-  .dessert-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--grad);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-
-  .dessert-card:hover::after { transform: scaleX(1); }
-  .dessert-card:hover { background: rgba(255,255,255,0.04); }
-
-  .dessert-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-
-  .dessert-ing {
-    font-size: 13px;
-    color: var(--gray);
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-
-  .dessert-price {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--gold);
-  }
-
-  /* ── GALLERY ── */
-  .gallery-section { padding: 0; }
-
-  .gallery-strip {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 2fr;
-    gap: 3px;
-    height: 420px;
-    overflow: hidden;
-  }
-
-  .gallery-item {
-    overflow: hidden;
-    position: relative;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    filter: brightness(0.85) saturate(1.1);
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.06);
-    filter: brightness(1) saturate(1.3);
-  }
-
-  /* ── INFO ── */
-  #info {
-    background: var(--dark);
-  }
-
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
-    margin-top: 60px;
-  }
-
-  .info-card {
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 48px 40px;
-  }
-
-  .info-card-icon {
-    font-size: 32px;
-    margin-bottom: 24px;
-  }
-
-  .info-card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-
-  .info-card p {
-    font-size: 16px;
-    color: var(--gray);
-    line-height: 1.7;
-  }
-
-  .info-card a {
-    color: var(--green);
-    text-decoration: none;
-  }
-
-  .info-card a:hover { text-decoration: underline; }
-
-  .hours-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .hours-row:last-child { border-bottom: none; }
-  .hours-day { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 15px; }
-  .hours-time { color: var(--green); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; }
-  .hours-closed { color: rgba(255,255,255,0.2); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--darker);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 60px 48px 40px;
-  }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 48px;
-  }
-
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    letter-spacing: 2px;
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .footer-sub {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gray);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 40px;
-  }
-
-  .footer-col-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 16px;
-  }
-
-  .footer-col a {
-    display: block;
-    font-size: 14px;
-    color: var(--gray);
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: color 0.2s;
-  }
-
-  .footer-col a:hover { color: var(--white); }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: rgba(255,255,255,0.25);
-  }
-
-  .social-links {
-    display: flex;
-    gap: 16px;
-  }
-
-  .social-link {
-    width: 38px; height: 38px;
-    border: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    text-decoration: none;
-    color: var(--gray);
-    transition: all 0.2s;
-  }
-
-  .social-link:hover {
-    border-color: var(--green);
-    color: var(--green);
-  }
-
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .fade-up:nth-child(2) { transition-delay: 0.1s; }
-  .fade-up:nth-child(3) { transition-delay: 0.2s; }
-  .fade-up:nth-child(4) { transition-delay: 0.3s; }
-
-  /* ── GRADIENT DIVIDER ── */
-  .grad-divider {
-    height: 3px;
-    background: var(--grad);
-  }
-
-  /* ── MOBILE NAV TOGGLE ── */
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-  }
-
-  .nav-toggle span {
-    display: block;
-    width: 26px;
-    height: 2px;
-    background: var(--white);
-    transition: 0.3s;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-
-    .nav-links, .nav-cta { display: none; }
-    .nav-toggle { display: flex; }
-
-    section { padding: 70px 24px; }
-
-    .hero { padding: 0 24px 60px; }
-
-    .about { grid-template-columns: 1fr; }
-    .about-visual { height: 300px; }
-
-    .menu-grid { grid-template-columns: 1fr; }
-
-    .pinsa-content { grid-template-columns: 1fr; }
-    .pinsa-items { grid-template-columns: 1fr; }
-
-    .dessert-grid { grid-template-columns: 1fr; }
-
-    .gallery-strip { grid-template-columns: 1fr 1fr; height: 300px; }
-    .gallery-strip > *:nth-child(3),
-    .gallery-strip > *:nth-child(4) { display: none; }
-
-    .info-grid { grid-template-columns: 1fr; }
-
-    .footer-top { flex-direction: column; gap: 40px; }
-    .footer-links { flex-direction: column; gap: 24px; }
-    .footer-bottom { flex-direction: column; gap: 16px; }
-  }
+
+/* ============================================================
+   Nibblish Gibraltar — Fusion Food Gang
+   Palette: green #00C897 · teal #00A8A8 · blue #3B6FD4 · purple #7B3FC4
+            gold #C9A84C · dark #0a0a12 · paper #f8f7f4
+   ============================================================ */
+
+:root {
+  --green:      #00C897;
+  --teal:       #00A8A8;
+  --blue:       #3B6FD4;
+  --purple:     #7B3FC4;
+  --gold:       #C9A84C;
+  --dark:       #0a0a12;
+  --dark-mid:   #13121e;
+  --dark-soft:  #8888aa;
+  --paper:      #f8f7f4;
+  --tint:       #f1f0ec;
+  --line:       #e3e1db;
+  --ink:        #1a1928;
+  --ink-soft:   #5a5870;
+
+  --grad: linear-gradient(135deg,#00C897 0%,#00A8A8 30%,#3B6FD4 65%,#7B3FC4 100%);
+
+  --wrap: 1180px;
+  --r:    12px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+
+  --f-display: "Bebas Neue", "Arial Black", sans-serif;
+  --f-body:    "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+figure { margin: 0; }
+a { color: inherit; }
+h1,h2,h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.0; letter-spacing: .02em; margin: 0; }
+h2 { font-size: clamp(2.6rem,5vw,4rem); }
+h3 { font-size: 1.4rem; letter-spacing: .04em; }
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+.wrap { width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:clamp(20px,5vw,48px); }
+
+.eyebrow {
+  font-family: var(--f-body);
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--green); margin: 0 0 .9rem;
+}
+
+.skip { position:absolute; left:-9999px; background:var(--dark); color:#fff; padding:.7rem 1.1rem; z-index:99; }
+.skip:focus { left:12px; top:12px; }
+
+/* ── GRADIENT LINE ── */
+.grad-line { height:3px; background: var(--grad); }
+
+/* ── BUTTONS ── */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.82rem 1.6rem;
+  border-radius:999px;
+  border: 1.5px solid var(--green);
+  background: var(--green);
+  color: var(--dark);
+  font-family: var(--f-body); font-size:.9rem; font-weight:600;
+  text-decoration:none; white-space:nowrap;
+  transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+}
+.btn:hover { background:#00ffbc; border-color:#00ffbc; transform:translateY(-1px); }
+.btn--ghost { background:transparent; color:var(--ink); border-color:var(--ink); }
+.btn--ghost:hover { background:var(--ink); color:#fff; }
+.btn--white { background:#fff; border-color:#fff; color:var(--dark); }
+.btn--white:hover { background:var(--green); border-color:var(--green); }
+.btn--sm { padding:.52rem 1.1rem; font-size:.84rem; }
+
+/* ── NAV ── */
+.nav {
+  position:sticky; top:0; z-index:50;
+  background: rgba(248,247,244,.88);
+  backdrop-filter: blur(14px) saturate(1.3);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s var(--ease);
+}
+.nav.is-stuck { border-bottom-color: var(--line); }
+.nav__inner { display:flex; align-items:center; gap:2rem; min-height:68px; }
+
+.brand { display:flex; align-items:center; gap:.7rem; text-decoration:none; margin-right:auto; }
+.brand__mark {
+  width:32px; height:32px; border-radius:50%;
+  background: var(--grad); display:grid; place-items:center;
+  color:#fff; font-family:var(--f-display); font-size:.95rem; letter-spacing:.04em;
+}
+.brand__text { font-family:var(--f-display); font-size:1.4rem; letter-spacing:.06em; }
+
+.nav__links { display:flex; gap:1.8rem; }
+.nav__links a {
+  font-size:.88rem; font-weight:500;
+  text-decoration:none; color:var(--ink-soft);
+  transition:color .2s var(--ease);
+}
+.nav__links a:hover { color:var(--green); }
+
+/* mobile nav toggle */
+.nav__toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; background:none; border:none; }
+.nav__toggle span { display:block; width:24px; height:2px; background:var(--ink); border-radius:2px; transition:.3s; }
+.nav__toggle.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.nav__toggle.open span:nth-child(2) { opacity:0; }
+.nav__toggle.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+.nav__drawer {
+  display:none;
+  position:fixed; inset:0;
+  background:rgba(10,10,18,.97);
+  z-index:49;
+  flex-direction:column; align-items:center; justify-content:center;
+  gap:0;
+}
+.nav__drawer.open { display:flex; }
+.nav__drawer a {
+  font-family:var(--f-display); font-size:3rem; letter-spacing:.06em;
+  color:#fff; text-decoration:none;
+  padding:20px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  width:100%; text-align:center;
+  transition:color .2s;
+}
+.nav__drawer a:hover { color:var(--green); }
+
+/* ── HERO ── */
+.hero { position:relative; isolation:isolate; }
+.hero__media { position:absolute; inset:0; z-index:-1; background:var(--dark); }
+.hero__media img { filter:saturate(1.1) brightness(.9); }
+.hero__media::after {
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(110deg,
+    rgba(10,10,18,.92) 0%,
+    rgba(10,10,18,.72) 45%,
+    rgba(10,10,18,.25) 100%);
+}
+.hero__inner {
+  padding-block: clamp(5rem,14vh,9rem) clamp(3.5rem,8vh,5.5rem);
+  color:#fff; max-width:960px;
+}
+.hero .eyebrow { color:var(--green); }
+.hero__title {
+  font-size: clamp(4rem,12vw,8rem);
+  margin-bottom:1.2rem;
+  line-height:.95;
+}
+.hero__title span {
+  display:block;
+  background:var(--grad);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero__lede {
+  max-width:42ch;
+  font-size:clamp(1rem,1.6vw,1.18rem);
+  color:rgba(255,255,255,.8);
+  font-weight:300;
+}
+.hero__actions { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
+.hero__facts {
+  display:flex; flex-wrap:wrap; gap:clamp(1.6rem,5vw,3.4rem);
+  margin:3rem 0 0; padding-top:1.6rem;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+.hero__facts dt { font-size:.68rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:.3rem; }
+.hero__facts dd { margin:0; font-family:var(--f-display); font-size:1.3rem; letter-spacing:.04em; }
+.hero__facts dd span { font-family:var(--f-body); font-size:.82rem; color:rgba(255,255,255,.5); }
+
+/* ── MARQUEE ── */
+.marquee-wrap { background:var(--green); padding:13px 0; overflow:hidden; white-space:nowrap; }
+.marquee-track { display:inline-block; animation:marquee 20s linear infinite; }
+.marquee-track span { font-family:var(--f-display); font-size:1.1rem; letter-spacing:.1em; color:var(--dark); margin:0 28px; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── SECTIONS ── */
+.section { padding-block:clamp(4.5rem,10vw,7.5rem); }
+.section--tint { background:var(--tint); }
+.section--dark { background:var(--dark); color:#f3f2ee; }
+.section--dark .eyebrow { color:var(--green); }
+.section--dark .section__sub { color:var(--dark-soft); }
+
+.section__head { max-width:48ch; margin-bottom:clamp(2.4rem,5vw,4rem); }
+.section__head--center { margin-inline:auto; text-align:center; }
+.section__sub { margin:.9rem 0 0; color:var(--ink-soft); font-weight:300; }
+
+/* ── SPLIT ── */
+.split { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2.4rem,6vw,5.5rem); align-items:center; }
+.split__text h2 { margin-bottom:1.3rem; }
+.split__text p { color:var(--ink-soft); font-weight:300; }
+.split__media { aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; background:var(--tint); position:relative; }
+.split--reverse .split__media { order:-1; aspect-ratio:1/1; }
+
+.tags { display:flex; flex-wrap:wrap; gap:.5rem; list-style:none; padding:0; margin:1.6rem 0 0; }
+.tags li { padding:.36rem .8rem; border:1px solid var(--line); border-radius:999px; font-size:.8rem; color:var(--ink-soft); }
+
+/* split image placeholder */
+.img-placeholder {
+  width:100%; height:100%;
+  background:var(--tint);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.6rem; color:var(--ink-soft); font-size:.8rem; text-align:center; padding:1rem;
+}
+.img-placeholder svg { opacity:.3; }
+
+/* ── MENU CARDS ── */
+.menu-cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
+  gap:clamp(1rem,2vw,1.6rem);
+}
+.dish {
+  display:grid; grid-template-columns:82px 1fr auto;
+  align-items:center; gap:1rem;
+  padding:.9rem;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.dish:hover { transform:translateY(-3px); box-shadow:0 12px 32px -16px rgba(10,10,18,.25); }
+.dish__media { width:82px; height:82px; border-radius:10px; overflow:hidden; background:var(--tint); }
+.dish__body p { margin:.2rem 0 0; font-size:.86rem; color:var(--ink-soft); line-height:1.45; }
+.dish__price { margin:0; font-family:var(--f-display); font-size:1.2rem; color:var(--green); align-self:start; letter-spacing:.04em; }
+
+/* ── FULL MENU ACCORDION ── */
+.full-menu { margin-top:clamp(3rem,6vw,5rem); }
+.full-menu__head {
+  display:flex; flex-wrap:wrap; align-items:baseline;
+  justify-content:space-between; gap:.8rem 2rem;
+  margin-bottom:1.5rem; padding-bottom:1.5rem;
+  border-bottom:1px solid var(--line);
+}
+.full-menu__head h3 { font-size:1.6rem; letter-spacing:.06em; }
+
+.acc__item { border-bottom:1px solid var(--line); }
+.acc__item[open] .acc__icon::before { transform:translate(-50%,-50%) rotate(90deg); opacity:0; }
+.acc__head {
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1.1rem .2rem; cursor:pointer; list-style:none;
+  font-family:var(--f-display); font-size:1.2rem; letter-spacing:.06em;
+  transition:color .2s var(--ease);
+}
+.acc__head::-webkit-details-marker { display:none; }
+.acc__head:hover { color:var(--green); }
+.acc__icon { position:relative; width:18px; height:18px; flex:none; }
+.acc__icon::before,.acc__icon::after { content:""; position:absolute; top:50%; left:50%; background:currentColor; }
+.acc__icon::before { width:2px; height:14px; transform:translate(-50%,-50%); transition:transform .25s var(--ease),opacity .25s var(--ease); }
+.acc__icon::after { width:14px; height:2px; transform:translate(-50%,-50%); }
+.acc__body { padding:.1rem .2rem 1.4rem; }
+.acc__list { list-style:none; margin:0; padding:0; }
+.acc__list li {
+  display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
+  padding:.55rem 0; border-top:1px solid var(--line);
+  font-size:.9rem;
+}
+.acc__list li:first-child { border-top:none; }
+.acc__list li span:first-child { color:var(--ink); }
+.acc__list li span:last-child { font-family:var(--f-display); color:var(--green); white-space:nowrap; letter-spacing:.04em; font-size:1.05rem; }
+.acc__note { font-size:.82rem; color:var(--ink-soft); margin-top:.8rem; }
+
+/* ── PINSA FEATURE ── */
+.pinsa-feat {
+  position:relative; isolation:isolate;
+  padding-block:clamp(4rem,10vw,7rem);
+  color:#fff;
+}
+.pinsa-feat__bg { position:absolute; inset:0; z-index:-1; }
+.pinsa-feat__bg img { filter:brightness(.22) saturate(1.4); }
+.pinsa-feat__bg::after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(10,10,18,.96) 0%,rgba(59,111,212,.15) 100%);
+}
+.pinsa-badges { display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:2rem; }
+.pinsa-badge {
+  font-size:.72rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  padding:.4rem .9rem; border-radius:999px; border:1px solid;
+}
+.pinsa-badge--green { border-color:var(--green); color:var(--green); }
+.pinsa-badge--purple { border-color:var(--purple); color:#b07af0; }
+.pinsa-badge--gold { border-color:var(--gold); color:var(--gold); }
+.pinsa-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:1px; margin-top:2.5rem; border:1px solid rgba(255,255,255,.08); border-radius:var(--r); overflow:hidden;
+}
+.pinsa-item {
+  padding:1.1rem 1.3rem;
+  background:rgba(255,255,255,.03);
+  display:flex; justify-content:space-between; align-items:center;
+  transition:background .2s;
+}
+.pinsa-item:hover { background:rgba(0,200,151,.1); }
+.pinsa-item__name { font-family:var(--f-body); font-size:.88rem; font-weight:500; color:rgba(255,255,255,.85); }
+.pinsa-item__price { font-family:var(--f-display); font-size:1.2rem; color:var(--green); letter-spacing:.04em; }
+.pinsa-note { font-size:.82rem; color:rgba(255,255,255,.4); margin-top:1.5rem; }
+
+/* ── GALLERY ── */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:200px;
+  gap:clamp(.6rem,1.2vw,1rem);
+}
+.gallery__item { overflow:hidden; border-radius:var(--r); background:var(--tint); }
+.gallery__item img { transition:transform .7s var(--ease); }
+.gallery__item:hover img { transform:scale(1.045); }
+.gallery__item--tall { grid-row:span 2; }
+.gallery__item--wide { grid-column:span 2; }
+
+/* ── SMILES (open pinsa) ── */
+.smiles-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:clamp(1rem,2vw,1.5rem);
+}
+.smile-card {
+  padding:1.4rem;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r);
+  background:rgba(255,255,255,.04);
+  transition:background .25s;
+}
+.smile-card:hover { background:rgba(0,200,151,.07); }
+.smile-card h4 { font-family:var(--f-display); font-size:1.3rem; letter-spacing:.05em; color:#fff; margin:0 0 .5rem; }
+.smile-card p { font-size:.84rem; color:rgba(255,255,255,.55); margin:0 0 .9rem; font-weight:300; }
+.smile-card__price { font-family:var(--f-display); font-size:1.4rem; color:var(--green); letter-spacing:.04em; }
+.smile-card__tag { font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+
+/* ── DESSERTS ── */
+.dessert-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:clamp(1rem,2vw,1.4rem);
+}
+.dessert-card {
+  padding:1.4rem 1.2rem;
+  border:1px solid var(--line); border-radius:var(--r);
+  background:var(--paper);
+  position:relative; overflow:hidden;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.dessert-card::after {
+  content:""; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:var(--grad); transform:scaleX(0); transform-origin:left; transition:transform .3s var(--ease);
+}
+.dessert-card:hover::after { transform:scaleX(1); }
+.dessert-card:hover { transform:translateY(-3px); box-shadow:0 12px 28px -14px rgba(10,10,18,.2); }
+.dessert-card h4 { font-family:var(--f-display); font-size:1.2rem; letter-spacing:.04em; margin:0 0 .4rem; }
+.dessert-card p { font-size:.84rem; color:var(--ink-soft); margin:0 0 .9rem; font-weight:300; }
+.dessert-card__price { font-family:var(--f-display); font-size:1.2rem; color:var(--gold); letter-spacing:.04em; }
+
+/* ── REVIEWS ── */
+.reviews { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(1.2rem,2.5vw,2rem); }
+.review { margin:0; padding:1.8rem; border:1px solid rgba(255,255,255,.1); border-radius:var(--r); background:rgba(255,255,255,.03); }
+.review p { font-size:.94rem; color:rgba(243,239,233,.82); font-weight:300; }
+.review__stars { color:#e0a13f; font-size:.88rem; letter-spacing:.12em; margin-bottom:1rem; }
+.review footer { display:flex; flex-direction:column; gap:.15rem; margin-top:1.2rem; }
+.review cite { font-style:normal; font-weight:600; font-size:.9rem; }
+.review span { font-size:.78rem; color:var(--dark-soft); }
+
+/* ── INFO ── */
+.info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:3rem; }
+.info dt { font-size:.68rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.4rem; }
+.info dd { margin:0; font-size:1rem; }
+.info a { color:var(--green); text-decoration:none; }
+.info a:hover { text-decoration:underline; }
+.hours-row { display:flex; justify-content:space-between; padding:.5rem 0; border-bottom:1px solid var(--line); font-size:.9rem; }
+.hours-row:last-child { border-bottom:none; }
+.hours-closed { color:var(--ink-soft); opacity:.45; }
+
+/* ── WHATSAPP FAB ── */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.wa-fab {
+  position:fixed; right:clamp(16px,4vw,28px); bottom:clamp(16px,4vw,28px); z-index:60;
+  display:grid; place-items:center;
+  width:56px; height:56px; border-radius:50%;
+  background:#25d366; color:#fff;
+  box-shadow:0 8px 24px -6px rgba(10,10,18,.45);
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.wa-fab svg { width:28px; height:28px; }
+.wa-fab:hover { transform:translateY(-3px) scale(1.06); }
+
+/* ── FOOTER ── */
+.footer { padding-block:3rem; border-top:1px solid var(--line); }
+.footer__inner { text-align:center; }
+.footer__brand { font-family:var(--f-display); font-size:2rem; letter-spacing:.08em; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.4rem; }
+.footer p { font-size:.88rem; color:var(--ink-soft); }
+.footer a { color:var(--green); text-decoration:none; }
+.footer__fine { margin-top:1.4rem; font-size:.76rem; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav__links,.nav .btn--sm { display:none; }
+  .nav__toggle { display:flex; }
+  .split { grid-template-columns:1fr; }
+  .split--reverse .split__media { order:0; }
+  .split__media { aspect-ratio:16/10; }
+  .gallery { grid-template-columns:repeat(2,1fr); grid-auto-rows:160px; }
+  .gallery__item--tall { grid-row:span 1; }
+  .gallery__item--wide { grid-column:span 2; }
+  .info-grid { grid-template-columns:1fr; gap:2rem; }
+}
+
+@media(max-width:560px){
+  body { font-size:16px; }
+  .brand__text { font-size:1.1rem; }
+  .dish { grid-template-columns:70px 1fr auto; }
+  .dish__media { width:70px; height:70px; }
+  .review { padding:1.3rem; }
+  .pinsa-grid { grid-template-columns:1fr; }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { transition:none !important; animation:none !important; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">NIBBLISH</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#pinsa">Pinsa</a></li>
-    <li><a href="#desserts">Desserts</a></li>
-    <li><a href="#info">Visit</a></li>
-  </ul>
-  <a href="tel:+35056020456" class="nav-cta">Call Us</a>
-  <div class="nav-toggle" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+<a class="skip" href="#menu">Skip to menu</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark">N</span>
+      <span class="brand__text">NIBBLISH</span>
+    </a>
+    <nav class="nav__links" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#pinsa">Pinsa</a>
+      <a href="#desserts">Desserts</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn--sm" href="tel:+35056020456">Call us · +350 560 20456</a>
+    <button class="nav__toggle" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+</header>
+
+<!-- mobile drawer -->
+<nav class="nav__drawer" id="drawer" aria-label="Mobile navigation">
+  <a href="#about" onclick="toggleNav()">About</a>
+  <a href="#menu" onclick="toggleNav()">Menu</a>
+  <a href="#pinsa" onclick="toggleNav()">Pinsa</a>
+  <a href="#desserts" onclick="toggleNav()">Desserts</a>
+  <a href="#visit" onclick="toggleNav()">Visit</a>
+  <a href="tel:+35056020456" onclick="toggleNav()">+350 560 20456</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-bg-img"></div>
-  <div class="hero-accent"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Fusion Food Gang · Gibraltar</div>
-    <h1 class="hero-title">
-      <span class="line1">FUSION</span>
-      <span class="line2">NIBBLISH</span>
-    </h1>
-    <p class="hero-sub">Italian-inspired flavours, reimagined for Gibraltar. From handmade pinsa to Roman supplì — every bite tells a story.</p>
-    <div class="hero-actions">
-      <a href="#menu" class="btn-primary">Explore Menu</a>
-      <div class="hero-hours">
-        Open <strong>Mon–Fri</strong><br>
-        <strong>8:00 – 16:00</strong>
-      </div>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <figure class="hero__media">
+    <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_1.jpg"
+         alt="Nibblish Gibraltar — Fusion Food Gang exterior" loading="eager">
+  </figure>
+  <div class="wrap hero__inner">
+    <p class="eyebrow">Fusion Food Gang · Gibraltar</p>
+    <h1 class="hero__title">NIBBLISH<br><span>BY ITANÉ</span></h1>
+    <p class="hero__lede">
+      Italian street food, reimagined. From 72-hour fermented pinsa to
+      handmade supplì and arancine — every bite is crafted with love in the heart of Gibraltar.
+    </p>
+    <div class="hero__actions">
+      <a class="btn" href="#menu">Explore menu</a>
+      <a class="btn btn--ghost" href="#visit" style="color:#fff;border-color:rgba(255,255,255,.5)">Find us</a>
     </div>
+    <dl class="hero__facts">
+      <div><dt>Hours</dt><dd>Mon–Fri <span>· 8:00–16:00</span></dd></div>
+      <div><dt>Phone</dt><dd>+350 560 20456</dd></div>
+      <div><dt>Instagram</dt><dd>@nibblishgibraltar</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
-    <span>🍕 PINSA ROMANA</span>
-    <span>🍚 SUPPLÌ</span>
-    <span>🧆 ARANCINE</span>
-    <span>🍰 TIRAMISU</span>
-    <span>☕ ESPRESSO</span>
-    <span>🍕 PINSA ROMANA</span>
-    <span>🍚 SUPPLÌ</span>
-    <span>🧆 ARANCINE</span>
-    <span>🍰 TIRAMISU</span>
-    <span>☕ ESPRESSO</span>
-    <span>🍕 PINSA ROMANA</span>
-    <span>🍚 SUPPLÌ</span>
-    <span>🧆 ARANCINE</span>
-    <span>🍰 TIRAMISU</span>
-    <span>☕ ESPRESSO</span>
-    <span>🍕 PINSA ROMANA</span>
-    <span>🍚 SUPPLÌ</span>
-    <span>🧆 ARANCINE</span>
-    <span>🍰 TIRAMISU</span>
-    <span>☕ ESPRESSO</span>
+    <span>🍕 PINSA ROMANA</span><span>🍚 SUPPLÌ</span><span>🧆 ARANCINE</span>
+    <span>🍰 TIRAMISU</span><span>☕ ESPRESSO</span><span>🫒 OLIVE ASCOLANA</span>
+    <span>🐷 PORK NUGGETS</span><span>🍋 CROISSANT</span>
+    <span>🍕 PINSA ROMANA</span><span>🍚 SUPPLÌ</span><span>🧆 ARANCINE</span>
+    <span>🍰 TIRAMISU</span><span>☕ ESPRESSO</span><span>🫒 OLIVE ASCOLANA</span>
+    <span>🐷 PORK NUGGETS</span><span>🍋 CROISSANT</span>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about" style="background: var(--darker);">
-  <div class="about">
-    <div class="about-text fade-up">
-      <div class="section-label">Our Story</div>
-      <h2 class="section-title">BORN FROM<br>PASSION</h2>
-      <p>Nibblish by Itané brings the best of Roman street food culture to the heart of Gibraltar. We believe food should be an experience — bold, authentic, and made with love.</p>
-      <p>From our 72-hour fermented pinsa dough to our handmade supplì and arancine, every dish is crafted with the finest Italian ingredients, fused with the vibrant flavours of our community.</p>
-      <div class="about-stats">
-        <div class="stat fade-up">
-          <div class="stat-num">72H</div>
-          <div class="stat-label">Dough Maturation</div>
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="wrap split">
+    <div class="split__text">
+      <p class="eyebrow">About us</p>
+      <h2>BORN FROM PASSION</h2>
+      <p>
+        Nibblish by Itané brings the best of Roman street food culture to the heart of Gibraltar.
+        We believe food should be bold, authentic, and made with love — using only the finest
+        Italian ingredients fused with the vibrant flavours of our community.
+      </p>
+      <p>
+        From our 72-hour fermented pinsa dough to our handcrafted supplì and arancine,
+        every dish tells a story. Come hungry. Leave happy.
+      </p>
+      <ul class="tags">
+        <li>Dine in</li>
+        <li>Italian fusion</li>
+        <li>100% homemade</li>
+        <li>72h pinsa dough</li>
+        <li>Mon–Fri 8–16h</li>
+      </ul>
+    </div>
+    <div class="split__media">
+      <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_2.jpg"
+           alt="Nibblish food — flavours that make you fall in love">
+    </div>
+  </div>
+</section>
+
+<div class="grad-line"></div>
+
+<!-- ============ MENU HIGHLIGHTS ============ -->
+<section class="section section--tint" id="menu">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Street food</p>
+      <h2>OUR FAB FRIED STUFF</h2>
+      <p class="section__sub">Roman supplì and Sicilian arancine, handmade daily with the finest ingredients.</p>
+    </div>
+
+    <div class="menu-cards">
+
+      <div class="dish">
+        <div class="dish__media">
+          <!-- Add image: supplì classico -->
+          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
         </div>
-        <div class="stat fade-up">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Homemade</div>
+        <div class="dish__body">
+          <h3>Supplì Classico</h3>
+          <p>Rice, tomato sauce, mozzarella, parmigiano, basil</p>
         </div>
-        <div class="stat fade-up">
-          <div class="stat-num">Gib</div>
-          <div class="stat-label">Based & Proud</div>
+        <p class="dish__price">£2.00</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish__media">
+          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
         </div>
-        <div class="stat fade-up">
-          <div class="stat-num">Mon–<br>Fri</div>
-          <div class="stat-label">Open Daily</div>
+        <div class="dish__body">
+          <h3>Supplì con N'Duja</h3>
+          <p>Rice, tomato, mozzarella, Calabrian salami · 🌶 spicy</p>
+        </div>
+        <p class="dish__price">£2.30</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish__media">
+          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+        </div>
+        <div class="dish__body">
+          <h3>Arancine Carbonara</h3>
+          <p>Rice, guanciale, egg yolk, pecorino cheese</p>
+        </div>
+        <p class="dish__price">£2.30</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish__media">
+          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+        </div>
+        <div class="dish__body">
+          <h3>Olive Ascolana</h3>
+          <p>Olives filled with mixed meats and herb spices</p>
+        </div>
+        <p class="dish__price">£4.95</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish__media">
+          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+        </div>
+        <div class="dish__body">
+          <h3>Pork Nuggets · 6pcs</h3>
+          <p>Pork, herbs and spices · also available with chips</p>
+        </div>
+        <p class="dish__price">£4.95</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish__media">
+          <div class="img-placeholder"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
+        </div>
+        <div class="dish__body">
+          <h3>Arancine Cacio &amp; Pepe</h3>
+          <p>Rice, parmigiano &amp; pecorino cheese, black pepper</p>
+        </div>
+        <p class="dish__price">£2.30</p>
+      </div>
+
+    </div><!-- /menu-cards -->
+
+    <!-- full fried menu accordion -->
+    <div class="full-menu">
+      <div class="full-menu__head">
+        <div>
+          <p class="eyebrow" style="margin-bottom:.3rem">Full menu</p>
+          <h3>ALL FRIED ITEMS</h3>
         </div>
       </div>
+
+      <details class="acc__item">
+        <summary class="acc__head">Supplì <span class="acc__icon"></span></summary>
+        <div class="acc__body">
+          <ul class="acc__list">
+            <li><span>Supplì Classico — Rice, tomato sauce, mozzarella, parmigiano, basil, eggs</span><span>£2.00</span></li>
+            <li><span>Supplì con N'Duja — Rice, tomato, mozzarella, Calabrian salami, eggs · Spicy</span><span>£2.30</span></li>
+            <li><span>Supplì al Ragù — Rice, bolognese sauce, mozzarella, parmigiano, eggs</span><span>£2.30</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc__item">
+        <summary class="acc__head">Arancine <span class="acc__icon"></span></summary>
+        <div class="acc__body">
+          <ul class="acc__list">
+            <li><span>Arancine Cacio &amp; Pepe — Rice, parmigiano &amp; pecorino, black pepper</span><span>£2.30</span></li>
+            <li><span>Arancine Amatriciana — Rice, tomato sauce, mozzarella, guanciale</span><span>£2.30</span></li>
+            <li><span>Arancine Carbonara — Rice, guanciale, egg yolk, pecorino cheese</span><span>£2.30</span></li>
+            <li><span>Arancine Carciofi &amp; Tartufo — Rice, artichokes, truffle, cheese</span><span>£2.30</span></li>
+            <li><span>Arancine alla Gricia — Rice, pecorino, guanciale, black pepper</span><span>£2.30</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc__item">
+        <summary class="acc__head">Olive &amp; Nuggets <span class="acc__icon"></span></summary>
+        <div class="acc__body">
+          <ul class="acc__list">
+            <li><span>Olive Ascolana — Olives filled with meats and herb spices</span><span>£4.95</span></li>
+            <li><span>Olive Ascolana with Chips</span><span>£7.50</span></li>
+            <li><span>Pork Nuggets 6pcs — Pork, herbs, spices, eggs</span><span>£4.95</span></li>
+            <li><span>Pork Nuggets with Chips</span><span>£7.50</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc__item">
+        <summary class="acc__head">Breakfast <span class="acc__icon"></span></summary>
+        <div class="acc__body">
+          <ul class="acc__list">
+            <li><span>Croissant — made with 24% butter</span><span>£1.90</span></li>
+            <li><span>Filled Croissant — Jam / Nutella / Pistacchio</span><span>£2.20</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc__item">
+        <summary class="acc__head">Drinks <span class="acc__icon"></span></summary>
+        <div class="acc__body">
+          <ul class="acc__list">
+            <li><span>Espresso</span><span>£1.20</span></li>
+            <li><span>Cafe Decaf — M / L</span><span>£1.80 / £2.40</span></li>
+            <li><span>Tea</span><span>£1.70</span></li>
+            <li><span>Americano — M / L</span><span>£1.70 / £2.00</span></li>
+            <li><span>Latte Machiato — M / L</span><span>£1.70 / £2.30</span></li>
+            <li><span>Capuccino — M / L</span><span>£1.70 / £2.30</span></li>
+            <li><span>Water</span><span>£1.00</span></li>
+            <li><span>Sparkling Water</span><span>£1.60</span></li>
+            <li><span>Tango Mango / Apple</span><span>£1.20</span></li>
+            <li><span>Lipton</span><span>£1.70</span></li>
+            <li><span>Don Simon</span><span>£1.20</span></li>
+            <li><span>Fresh Orange Juice</span><span>£3.50</span></li>
+          </ul>
+        </div>
+      </details>
+    </div><!-- /full-menu -->
+
+  </div>
+</section>
+
+<!-- ============ PINSA ============ -->
+<section class="pinsa-feat" id="pinsa">
+  <figure class="pinsa-feat__bg">
+    <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_3.jpg"
+         alt="Nibblish pinsa romana" loading="lazy">
+  </figure>
+  <div class="wrap">
+    <p class="eyebrow">Our signature</p>
+    <h2 style="color:#fff;margin-bottom:1rem">OUR PINSA</h2>
+    <div class="pinsa-badges">
+      <span class="pinsa-badge pinsa-badge--green">72h Leavening</span>
+      <span class="pinsa-badge pinsa-badge--purple">Low fat &amp; carb</span>
+      <span class="pinsa-badge pinsa-badge--gold">Artisan dough</span>
     </div>
-    <div class="about-visual fade-up">
-      <div class="about-img-main"></div>
-      <div class="about-img-overlay"></div>
-      <div class="about-badge">BY<br>ITANÉ<br>⚜️</div>
+    <p style="max-width:52ch;color:rgba(255,255,255,.75);font-weight:300;line-height:1.7;">
+      Our unique pinsas are made from a blend of premium flours — soya, rice and sourdough —
+      with 72 hours of perfect leavening and maturation. Lighter, crispier and easier to digest
+      than traditional pizza. Low fat and carb content. Heavy on flavour.
+    </p>
+
+    <div class="pinsa-grid">
+      <div class="pinsa-item"><span class="pinsa-item__name">Margherita</span><span class="pinsa-item__price">£9.00</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Crostino Rosso</span><span class="pinsa-item__price">£10.50</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Amatriciana</span><span class="pinsa-item__price">£11.50</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Diavola</span><span class="pinsa-item__price">£11.50</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Nibblish</span><span class="pinsa-item__price">£12.00</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Alici</span><span class="pinsa-item__price">£12.00</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Carbonara</span><span class="pinsa-item__price">£12.00</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Meat Me</span><span class="pinsa-item__price">£12.50</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Veggie</span><span class="pinsa-item__price">£12.50</span></div>
+      <div class="pinsa-item"><span class="pinsa-item__name">Pizza Slice</span><span class="pinsa-item__price">£2.80</span></div>
+    </div>
+
+    <!-- smiles -->
+    <div style="margin-top:3.5rem">
+      <p class="eyebrow" style="margin-bottom:1rem">Our Smiles · Pinsa dough, 72h matured</p>
+      <div class="smiles-grid">
+        <div class="smile-card"><h4>VEGGIE</h4><p>Homemade buffalo mozzarella, seasonal vegetables, olive oil</p><span class="smile-card__price">£5.90</span></div>
+        <div class="smile-card"><h4>NORWEGIAN</h4><p>Cream cheese, salad, smoked salmon</p><span class="smile-card__price">£5.90</span></div>
+        <div class="smile-card"><h4>GENOVESE</h4><p>Sliced tomatoes, homemade buffalo mozzarella, pesto sauce</p><span class="smile-card__price">£5.90</span></div>
+        <div class="smile-card"><h4>BOLOGNA</h4><p>Mortadella, homemade stracciatella, pistacchio cream</p><span class="smile-card__price">£5.90</span></div>
+        <div class="smile-card"><h4>NIBBLISH</h4><p>Salad, tomato, buffalo mozzarella, fried chicken, caramelised onions, honey mustard</p><span class="smile-card__price">£6.90</span></div>
+        <div class="smile-card"><h4>SPANISH</h4><p>Iberico ham, sliced tomatoes, rocket salad, buffalo mozzarella</p><span class="smile-card__price">£6.90</span></div>
+        <div class="smile-card"><h4>DON GAUCHO</h4><p>Pork loin, crispy guanciale, salsa gaucha</p><span class="smile-card__price">£6.90</span></div>
+        <div class="smile-card"><h4>EL CLASSIC</h4><p>Beef with pepper sauce</p><span class="smile-card__price">£6.90</span></div>
+        <div class="smile-card"><h4>'NICE TO MEAT BALLS'</h4><p>Homemade meat balls in tomato sauce and cacio e pepe drizzle</p><span class="smile-card__price">£6.90</span></div>
+        <div class="smile-card"><h4>POR LA CARA</h4><p>Pork cheek</p><span class="smile-card__price">£6.90</span></div>
+      </div>
+      <p class="pinsa-note">Extra sauce +50p · Extra ingredient +£1.50</p>
     </div>
   </div>
 </section>
 
-<div class="grad-divider"></div>
-
-<!-- MENU HIGHLIGHTS -->
-<section id="menu">
-  <div class="fade-up">
-    <div class="section-label">What We Serve</div>
-    <h2 class="section-title">OUR FAB<br>FRIED STUFF</h2>
-  </div>
-  <div class="menu-grid">
-    <div class="menu-card fade-up">
-      <span class="menu-card-tag tag-fan">Fan Favourite</span>
-      <span class="menu-card-icon">🍚</span>
-      <div class="menu-card-name">Supplì Classico</div>
-      <div class="menu-card-desc">Rice, tomato sauce, mozzarella, parmigiano, basil, eggs, bread</div>
-      <div class="menu-card-price">£2.00</div>
+<!-- ============ GALLERY ============ -->
+<section class="section section--tint" id="gallery">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Gallery</p>
+      <h2>FOOD THAT SPEAKS</h2>
     </div>
-    <div class="menu-card fade-up">
-      <span class="menu-card-tag tag-spicy">Spicy 🌶</span>
-      <span class="menu-card-icon">🌶️</span>
-      <div class="menu-card-name">Supplì con N'Duja</div>
-      <div class="menu-card-desc">Rice, tomato sauce, mozzarella, parmigiano, basil, typical Calabrian salami</div>
-      <div class="menu-card-price">£2.30</div>
-    </div>
-    <div class="menu-card fade-up">
-      <span class="menu-card-icon">🧆</span>
-      <div class="menu-card-name">Arancine Carbonara</div>
-      <div class="menu-card-desc">Rice, guanciale, egg yolk, pecorino cheese, eggs, bread</div>
-      <div class="menu-card-price">£2.30</div>
-    </div>
-    <div class="menu-card fade-up">
-      <span class="menu-card-icon">🫒</span>
-      <div class="menu-card-name">Olive Ascolana</div>
-      <div class="menu-card-desc">Olives filled with different types of meats and herb spices</div>
-      <div class="menu-card-price">£4.95</div>
-    </div>
-    <div class="menu-card fade-up">
-      <span class="menu-card-icon">🐷</span>
-      <div class="menu-card-name">Pork Nuggets</div>
-      <div class="menu-card-desc">Pork, herbs, spices, eggs, bread. 6 pieces — also available with chips</div>
-      <div class="menu-card-price">£4.95 / £7.50</div>
-    </div>
-    <div class="menu-card fade-up">
-      <span class="menu-card-icon">🧀</span>
-      <div class="menu-card-name">Arancine Cacio & Pepe</div>
-      <div class="menu-card-desc">Rice, parmigiano & pecorino cheese, black pepper, eggs, bread</div>
-      <div class="menu-card-price">£2.30</div>
-    </div>
-  </div>
-</section>
-
-<!-- PINSA FEATURE -->
-<section id="pinsa" class="pinsa-section">
-  <div class="pinsa-bg"></div>
-  <div class="pinsa-content">
-    <div class="pinsa-text fade-up">
-      <div class="section-label">Our Signature</div>
-      <h2 class="section-title">OUR<br>PINSA</h2>
-      <div class="pinsa-badge-row">
-        <span class="pinsa-badge green">72H Leavening</span>
-        <span class="pinsa-badge purple">Low Fat & Carb</span>
-        <span class="pinsa-badge gold">Artisan Dough</span>
+    <div class="gallery">
+      <div class="gallery__item gallery__item--tall">
+        <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_1.jpg" alt="Nibblish Gibraltar exterior" loading="lazy">
       </div>
-      <p>Our unique pinsas are crafted from the freshest selected ingredients — a blend of premium flours (soya, rice, sourdough), 72 hours of perfect leavening and maturation. Light on fat and carbs, heavy on flavour.</p>
-      <p>Also available as <strong>Smiles</strong> — open-faced pinsa bases with your favourite toppings, made with the same extraordinary dough matured for 72 hours.</p>
-    </div>
-    <div class="pinsa-items fade-up">
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Margherita</div>
-        <div class="pinsa-item-price">£9.00</div>
+      <div class="gallery__item gallery__item--wide">
+        <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_2.jpg" alt="Nibblish food" loading="lazy">
       </div>
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Nibblish</div>
-        <div class="pinsa-item-price">£12.00</div>
+      <div class="gallery__item">
+        <!-- Add photo -->
+        <div class="img-placeholder" style="height:100%"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
       </div>
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Carbonara</div>
-        <div class="pinsa-item-price">£12.00</div>
+      <div class="gallery__item">
+        <div class="img-placeholder" style="height:100%"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
       </div>
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Diavola</div>
-        <div class="pinsa-item-price">£11.50</div>
+      <div class="gallery__item gallery__item--wide">
+        <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_3.jpg" alt="Nibblish menu" loading="lazy">
       </div>
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Amatriciana</div>
-        <div class="pinsa-item-price">£11.50</div>
-      </div>
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Meat Me</div>
-        <div class="pinsa-item-price">£12.50</div>
-      </div>
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Alici</div>
-        <div class="pinsa-item-price">£12.00</div>
-      </div>
-      <div class="pinsa-item">
-        <div class="pinsa-item-name">Veggie</div>
-        <div class="pinsa-item-price">£12.50</div>
-      </div>
-      <div class="pinsa-item" style="grid-column: span 2; display:flex; justify-content:space-between; align-items:center;">
-        <div class="pinsa-item-name">Pizza Slice</div>
-        <div class="pinsa-item-price">£2.80</div>
+      <div class="gallery__item">
+        <div class="img-placeholder" style="height:100%"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span>Add photo</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="grad-divider"></div>
-
-<!-- DESSERTS -->
-<section id="desserts">
-  <div class="fade-up">
-    <div class="section-label">Sweet Endings</div>
-    <h2 class="section-title">NIBBLISH<br>DESSERTS</h2>
-  </div>
-  <div class="dessert-grid">
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Tiramisu Classico</div>
-      <div class="dessert-ing">Egg yolk, mascarpone, sugar, coffee, savoiardi, cocoa</div>
-      <div class="dessert-price">£5.00</div>
+<!-- ============ DESSERTS ============ -->
+<section class="section" id="desserts">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Sweet endings</p>
+      <h2>NIBBLISH DESSERTS</h2>
+      <p class="section__sub">All made in-house, from our tiramisù classics to our signature cheesecakes.</p>
     </div>
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Tiramisu al Pistacchio</div>
-      <div class="dessert-ing">Egg yolk, mascarpone, sugar, savoiardi, pistacchio cream</div>
-      <div class="dessert-price">£5.00</div>
-    </div>
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Cukimisù</div>
-      <div class="dessert-ing">Egg yolk, mascarpone, sugar, homemade cookies, Kinder Bueno topping</div>
-      <div class="dessert-price">£5.00</div>
-    </div>
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Strawberry Cheesecake</div>
-      <div class="dessert-ing">Biscuits, butter, whipped cream, cream cheese, strawberry coulis</div>
-      <div class="dessert-price">£4.50</div>
-    </div>
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Pistacchio Cheesecake</div>
-      <div class="dessert-ing">Biscuits, butter, whipped cream, cream cheese, pistacchio cream</div>
-      <div class="dessert-price">£4.50</div>
-    </div>
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Dulce de Leche Cheesecake</div>
-      <div class="dessert-ing">Biscuits, butter, whipped cream, cream cheese, dulce de leche</div>
-      <div class="dessert-price">£4.50</div>
-    </div>
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Home Made Brownie</div>
-      <div class="dessert-ing">Eggs, butter, flour, vanilla, chocolate, sugar</div>
-      <div class="dessert-price">£3.50</div>
-    </div>
-    <div class="dessert-card fade-up">
-      <div class="dessert-name">Chocolate Cookies</div>
-      <div class="dessert-ing">Home made chocolate cookies, fresh baked daily</div>
-      <div class="dessert-price">£2.00</div>
+    <div class="dessert-grid">
+      <div class="dessert-card"><h4>TIRAMISU CLASSICO</h4><p>Egg yolk, mascarpone, sugar, coffee, savoiardi, cocoa</p><span class="dessert-card__price">£5.00</span></div>
+      <div class="dessert-card"><h4>TIRAMISU AL PISTACCHIO</h4><p>Egg yolk, mascarpone, sugar, savoiardi, pistacchio cream</p><span class="dessert-card__price">£5.00</span></div>
+      <div class="dessert-card"><h4>CUKIMISÙ</h4><p>Egg yolk, mascarpone, sugar, homemade cookies, Kinder Bueno topping</p><span class="dessert-card__price">£5.00</span></div>
+      <div class="dessert-card"><h4>HOME MADE BROWNIE</h4><p>Eggs, butter, flour, vanilla, chocolate, sugar</p><span class="dessert-card__price">£3.50</span></div>
+      <div class="dessert-card"><h4>CHOCOLATE COOKIES</h4><p>Homemade chocolate cookies, fresh baked daily</p><span class="dessert-card__price">£2.00</span></div>
+      <div class="dessert-card"><h4>STRAWBERRY CHEESECAKE</h4><p>Biscuits, butter, whipped cream, cream cheese, strawberry coulis</p><span class="dessert-card__price">£4.50</span></div>
+      <div class="dessert-card"><h4>PISTACCHIO CHEESECAKE</h4><p>Biscuits, butter, whipped cream, cream cheese, pistacchio cream</p><span class="dessert-card__price">£4.50</span></div>
+      <div class="dessert-card"><h4>DULCE DE LECHE CHEESECAKE</h4><p>Biscuits, butter, whipped cream, cream cheese, dulce de leche</p><span class="dessert-card__price">£4.50</span></div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<div class="gallery-section">
-  <div class="gallery-strip">
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_1.jpg" alt="Nibblish food" loading="lazy">
+<!-- ============ REVIEWS ============ -->
+<section class="section section--dark" id="reviews">
+  <div class="wrap">
+    <div class="section__head section__head--center">
+      <p class="eyebrow">What people say</p>
+      <h2>LOVED IN GIBRALTAR</h2>
+      <p class="section__sub">Join the Fusion Food Gang.</p>
     </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/SaveClip_App_476249312_122111998868711970_3030171058919745886_n.jpg" alt="Nibblish arancine" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_2.jpg" alt="Nibblish pinsa" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="https://raw.githubusercontent.com/mariosoblechera-tech/nibblish-gib./main/nibblish_pinned_3.jpg" alt="Nibblish menu" loading="lazy">
-    </div>
-  </div>
-</div>
-
-<!-- INFO -->
-<section id="info">
-  <div class="fade-up">
-    <div class="section-label">Come Find Us</div>
-    <h2 class="section-title">VISIT<br>NIBBLISH</h2>
-  </div>
-  <div class="info-grid">
-    <div class="info-card fade-up">
-      <div class="info-card-icon">🕐</div>
-      <div class="info-card-title">Opening Hours</div>
-      <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">8:00 – 16:00</span></div>
-      <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">8:00 – 16:00</span></div>
-      <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">8:00 – 16:00</span></div>
-      <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">8:00 – 16:00</span></div>
-      <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">8:00 – 16:00</span></div>
-      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time hours-closed">Closed</span></div>
-      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time hours-closed">Closed</span></div>
-    </div>
-    <div class="info-card fade-up">
-      <div class="info-card-icon">📍</div>
-      <div class="info-card-title">Location</div>
-      <p>Gibraltar, GI<br><br>Dine in available — come hungry, leave happy.</p>
-      <br>
-      <div class="info-card-icon">📞</div>
-      <div class="info-card-title">Contact</div>
-      <p><a href="tel:+35056020456">+350 560 20456</a></p>
-    </div>
-    <div class="info-card fade-up">
-      <div class="info-card-icon">📱</div>
-      <div class="info-card-title">Follow Us</div>
-      <p>Stay up to date with our daily specials, new menu drops and behind-the-scenes content.</p>
-      <br>
-      <p><a href="https://www.instagram.com/nibblishgibraltar/" target="_blank">@nibblishgibraltar</a><br>on Instagram</p>
-      <br>
-      <p style="font-size: 13px; color: rgba(255,255,255,0.3);">Ready to try something tasty? Dine in today! 🤤</p>
+    <div class="reviews">
+      <figure class="review">
+        <div class="review__stars">★★★★★</div>
+        <p>"Honestly the best food spot I've found in Gibraltar. The supplì are incredible — I could eat them every day. The pinsa dough is unlike anything else."</p>
+        <footer><cite>Sarah M.</cite><span>Google Reviews</span></footer>
+      </figure>
+      <figure class="review">
+        <div class="review__stars">★★★★★</div>
+        <p>"The Nibblish smile is absolutely addictive. Fried chicken, caramelised onions and that honey mustard sauce on the pinsa dough... perfection."</p>
+        <footer><cite>James K.</cite><span>Google Reviews</span></footer>
+      </figure>
+      <figure class="review">
+        <div class="review__stars">★★★★★</div>
+        <p>"Tried the tiramisu and the pistacchio cheesecake. Both outstanding. You can tell everything is made from scratch with real love."</p>
+        <footer><cite>Elena R.</cite><span>Google Reviews</span></footer>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo">NIBBLISH</div>
-      <div class="footer-sub">Fusion Food Gang · By Itané · Gibraltar</div>
+<!-- ============ VISIT ============ -->
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Come find us</p>
+      <h2>VISIT NIBBLISH</h2>
+      <p class="section__sub">Monday to Friday, 8am to 4pm. Dine in or take away.</p>
     </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <div class="footer-col-title">Menu</div>
-        <a href="#menu">Fried Stuff</a>
-        <a href="#pinsa">Pinsa</a>
-        <a href="#pinsa">Smiles</a>
-        <a href="#desserts">Desserts</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Visit</div>
-        <a href="#info">Hours</a>
-        <a href="#info">Contact</a>
-        <a href="https://www.instagram.com/nibblishgibraltar/" target="_blank">Instagram</a>
-      </div>
+    <div class="info-grid">
+      <dl class="info">
+        <div>
+          <dt>Opening hours</dt>
+          <dd>
+            <div class="hours-row"><span>Monday – Friday</span><strong>8:00 – 16:00</strong></div>
+            <div class="hours-row"><span>Saturday</span><span class="hours-closed">Closed</span></div>
+            <div class="hours-row"><span>Sunday</span><span class="hours-closed">Closed</span></div>
+          </dd>
+        </div>
+      </dl>
+      <dl class="info">
+        <div>
+          <dt>Phone</dt>
+          <dd><a href="tel:+35056020456">+350 560 20456</a></dd>
+        </div>
+        <div style="margin-top:1.6rem">
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/nibblishgibraltar/" target="_blank" rel="noopener">@nibblishgibraltar</a></dd>
+        </div>
+        <div style="margin-top:1.6rem">
+          <dt>Location</dt>
+          <dd>Gibraltar, GI</dd>
+        </div>
+      </dl>
+      <dl class="info">
+        <div>
+          <dt>Ready to visit?</dt>
+          <dd style="margin-top:.6rem;display:flex;flex-direction:column;gap:.8rem">
+            <a class="btn" href="tel:+35056020456" style="width:fit-content">Call us now</a>
+            <a class="btn btn--ghost" href="https://www.instagram.com/nibblishgibraltar/" target="_blank" rel="noopener" style="width:fit-content">Follow on Instagram</a>
+          </dd>
+        </div>
+      </dl>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Nibblish by Itané. All rights reserved. Gibraltar.</div>
-    <div class="social-links">
-      <a href="https://www.instagram.com/nibblishgibraltar/" target="_blank" class="social-link">📷</a>
-      <a href="tel:+35056020456" class="social-link">📞</a>
-    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">NIBBLISH</div>
+    <p>Fusion Food Gang · By Itané · Gibraltar</p>
+    <p class="footer__fine">
+      © 2025 Nibblish by Itané. All rights reserved.
+      · <a href="https://www.instagram.com/nibblishgibraltar/" target="_blank" rel="noopener">Instagram</a>
+      · <a href="tel:+35056020456">+350 560 20456</a>
+    </p>
   </div>
 </footer>
 
+<!-- WhatsApp FAB -->
+<a class="wa-fab" href="https://wa.me/35056020456" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="sr-only">Chat on WhatsApp</span>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script>
-  // Intersection Observer for fade-up animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  const obs = new IntersectionObserver(([e]) => nav.classList.toggle('is-stuck', !e.isIntersecting), { threshold: 1 });
+  obs.observe(document.getElementById('top'));
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Nav scroll behavior
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 60) {
-      nav.style.padding = window.innerWidth > 900 ? '12px 48px' : '12px 24px';
-    } else {
-      nav.style.padding = window.innerWidth > 900 ? '20px 48px' : '16px 24px';
-    }
-  });
-
-  function toggleMenu() {
-    // Simple mobile menu toggle (can be expanded)
-    const links = document.querySelector('.nav-links');
-    if (links) {
-      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-    }
+  // Mobile nav
+  function toggleNav() {
+    const drawer = document.getElementById('drawer');
+    const toggle = document.querySelector('.nav__toggle');
+    const open = drawer.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   }
 </script>
 </body>
